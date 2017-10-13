@@ -1,6 +1,7 @@
 <h1>Page#home</h1>
 <p>Find me in app/views/page/home.html.erb</p>
 
+
 <div class="card">
   <div class="card-body">
 
@@ -10,54 +11,49 @@
       <!-- Grid column -->
       <div class="col-md-12 mt-4">
 
-        <!-- <div class="input-group md-form form-sm form-2 pl-0">
-        <input class="form-control my-0 py-1 grey-border" type="text" placeholder="Search" aria-label="Search">
-        <span class="input-group-addon waves-effect grey lighten-3" id="basic-addon1"><a><i class="fa fa-search text-grey" aria-hidden="true"></i></a></span>
-      </div> -->
 
-      <%=form_tag properties_path,{:method=>'get', class:"navbar-form navbar-left", role:"search"}  do%>
-        <div class="form-group">
-          <%=text_field_tag :search, params[:search] ,class:"form-control",placeholder:"Search"%>
-        </div>
-        <%=submit_tag 'Seach', :name => nil ,class:"btn btn-default "%>
-      <%end%>
+        <%= form_tag page_home_path, :method => 'get', class:"navbar-form navbar-left" do %>
+          <%= text_field_tag :search, params[:search], class:"form-control",placeholder:"Search" %>
+          <%= submit_tag "Search", :name => nil, class:"btn btn-default " %>
+        <% end %>
+
+
+      </div>
+      <!-- Grid column -->
 
     </div>
-    <!-- Grid column -->
+    <!-- Grid row -->
+
+    <!--Table-->
+    <table class="table table-striped">
+
+      <!--Table head-->
+      <thead>
+        <tr>
+          <th>Full address</th>
+          <th>Property type</th>
+          <th>price_for_sale</th>
+          <th>price_for_rent</th>
+          <th>actions</th>
+        </tr>
+      </thead>
+      <!--Table head-->
+
+      <!--Table body-->
+      <tbody>
+        <% @properties.each do |property| %>
+        <tr>
+          <td><%= property.full_street_address_display %></td>
+          <td><%= property.propertytype %></td>
+          <td><%= property.price_for_sale %></td>
+          <td><%= property.price_for_rent %></td>
+          <td><%= link_to "details", property_path(property), :type => "button", :class => "btn btn-primary btn-xs"  %></td>
+        </tr>
+        <% end %>
+      </tbody>
+      <!--Table body-->
+    </table>
+    <!--Table-->
 
   </div>
-  <!-- Grid row -->
-
-  <!--Table-->
-  <table class="table table-striped">
-
-    <!--Table head-->
-    <thead>
-      <tr>
-        <th>Full address</th>
-        <th>Property type</th>
-        <th>price_for_sale</th>
-        <th>price_for_rent</th>
-        <th>actions</th>
-      </tr>
-    </thead>
-    <!--Table head-->
-
-    <!--Table body-->
-    <tbody>
-      <% @properties.each do |property| %>
-      <tr>
-        <td><%= property.full_street_address_display %></td>
-        <td><%= property.propertytype %></td>
-        <td><%= property.price_for_sale %></td>
-        <td><%= property.price_for_rent %></td>
-        <td><%= link_to "details", property_path(property), :type => "button", :class => "btn btn-primary btn-xs"  %></td>
-      </tr>
-      <% end %>
-    </tbody>
-    <!--Table body-->
-  </table>
-  <!--Table-->
-
-</div>
 </div>
