@@ -11,6 +11,7 @@ gem 'devise'
 gem "twitter-bootstrap-rails"
 gem 'devise-bootstrap-views'
 gem 'geocoder'
+gem 'gmaps4rails'
 
 
 # end additional gems added by me
