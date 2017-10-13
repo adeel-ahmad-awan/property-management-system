@@ -50,7 +50,7 @@
   <div class="form-group">
     <%= f.label :propertytype, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :propertytype, :class => 'form-control' %>
+      <%= f.text_field :propertytype, :class => 'form-control',placeholder:"plot, flat, house, bungalow" %>
     </div>
     <%=f.error_span(:propertytype) %>
   </div>
@@ -58,42 +58,35 @@
 
   <div class="form-group">
     <%= f.label :for_sale, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :for_sale, :class => 'form-control' %>
+    <div class="col-lg-1">
+      <%= f.check_box :for_sale, :class => 'form-control' %>
     </div>
     <%=f.error_span(:for_sale) %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :for_rent, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :for_rent, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:for_rent) %>
-  </div>
 
   <div class="form-group">
     <%= f.label :price_for_sale, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :price_for_sale, :class => 'form-control' %>
+      <%= f.number_field :price_for_sale, :class => 'form-control' %>
     </div>
     <%=f.error_span(:price_for_sale) %>
   </div>
 
   <div class="form-group">
-    <%= f.label :price_for_rent, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :price_for_rent, :class => 'form-control' %>
+    <%= f.label :for_rent, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-1">
+      <%= f.check_box :for_rent, :class => 'form-control' %>
     </div>
-    <%=f.error_span(:price_for_rent) %>
+    <%=f.error_span(:for_rent) %>
   </div>
 
   <div class="form-group">
-    <%= f.label :user_id, :class => 'control-label col-lg-2' %>
+    <%= f.label :price_for_rent, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :user_id, :class => 'form-control' %>
+      <%= f.number_field :price_for_rent, :class => 'form-control' %>
     </div>
-    <%=f.error_span(:user_id) %>
+    <%=f.error_span(:price_for_rent) %>
   </div>
 
   <div class="form-group">
