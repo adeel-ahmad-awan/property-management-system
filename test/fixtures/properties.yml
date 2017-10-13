@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  longitude: 
+  latitude: 
+  house_num: 
+  town: MyString
+  city: MyString
+  country: MyString
+  type: 
+  for_sale: false
+  for_rent: false
+  price_for_sale: 1
+  price_for_rent: 1
+  user: one
+
+two:
+  longitude: 
+  latitude: 
+  house_num: 
+  town: MyString
+  city: MyString
+  country: MyString
+  type: 
+  for_sale: false
+  for_rent: false
+  price_for_sale: 1
+  price_for_rent: 1
+  user: two

@@ -10,6 +10,7 @@ gem 'bootstrap-generators', '~> 3.3.4'
 gem 'devise'
 gem "twitter-bootstrap-rails"
 gem 'devise-bootstrap-views'
+gem 'geocoder'
 
 
 # end additional gems added by me

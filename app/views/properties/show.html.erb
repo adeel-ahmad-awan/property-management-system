@@ -1,0 +1,45 @@
+<%- model_class = Property -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <!-- <dt><strong><%= model_class.human_attribute_name(:house_num) %>:</strong></dt>
+  <dd><%= @property.house_num %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:town) %>:</strong></dt>
+  <dd><%= @property.town %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @property.city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:country) %>:</strong></dt>
+  <dd><%= @property.country %></dd> -->
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @property.house_num %> <%= @property.town %> <%= @property.city %> <%= @property.country %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:propertytype) %>:</strong></dt>
+  <dd><%= @property.propertytype %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:for_sale) %>:</strong></dt>
+  <dd><%= @property.for_sale %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:for_rent) %>:</strong></dt>
+  <dd><%= @property.for_rent %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:price_for_sale) %>:</strong></dt>
+  <dd><%= @property.price_for_sale %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:price_for_rent) %>:</strong></dt>
+  <dd><%= @property.price_for_rent %></dd>
+  <% if current_user.id != @property.user_id %>
+    <dt><strong><%= model_class.human_attribute_name(:created_by) %>:</strong></dt>
+    <dd><%= @property.user.first_name%> <%=@property.user.last_name %></dd>
+    <dt><strong><%= model_class.human_attribute_name(:email_address) %>:</strong></dt>
+    <dd><%= @property.user.email %></dd>
+  <% end %>
+</dl>
+
+<% if current_user.id == @property.user_id %>
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+                properties_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_property_path(@property), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                property_path(@property),
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger' %>
+<% end %>
