@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'page/home'
   get 'page/about'
+  get 'page/allpropertiesonmap'
 
   root 'page#home'
 

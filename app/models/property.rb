@@ -1,8 +1,26 @@
 class Property < ApplicationRecord
+
   belongs_to :user
 
-  geocoded_by :full_street_address_display   # can also be an IP address
-  after_validation :geocode          # auto-fetch coordinates
+  geocoded_by :full_street_address
+  after_validation :geocode, if: :address_changed_and_lat_long_blank?
+
+  def address_changed_and_lat_long_blank?
+    if ((self.longitude.blank? && self.latitude.blank? )|| (self.longitude.nill? && self.latitude.nill? ))
+      return true
+    else
+      return false
+    end
+  end
+
+  def full_street_address
+    return "#{town} #{city} #{country}"
+  end
+
+  def full_street_address_display
+    # return "#{user.first_name} #{user.last_name} #{propertytype}  #{house_num} #{town} #{city} #{country}"
+    return "#{propertytype}  #{house_num} #{town} #{city} #{country}"
+  end
 
   def self.search(search)
     if search
@@ -25,12 +43,4 @@ class Property < ApplicationRecord
     end
   end
 
-  def full_street_address
-    return "#{town} #{city} #{country}"
-  end
-
-  def full_street_address_display
-    return "#{house_num} #{town} #{city} #{country}"
-  end
-
-end
+end #end class

@@ -16,6 +16,30 @@
   <% end %>
 
   <div class="form-group">
+    <%= f.label :longitude, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :longitude, :class => 'form-control' %>
+      <p class="help-block description">
+        if left blank the application will calculate it automatically.
+        <em> can be erroneous</em>
+      </p>
+    </div>
+    <%=f.error_span(:longitude) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :latitude, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :latitude, :class => 'form-control' %>
+      <p class="help-block description">
+        if left blank the application will calculate it automatically.
+        <em> can be erroneous</em>
+      </p>
+    </div>
+    <%=f.error_span(:latitude) %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :house_num, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :house_num, :class => 'form-control' %>
