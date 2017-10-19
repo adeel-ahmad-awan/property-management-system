@@ -9,10 +9,17 @@
         <li><a href="#">Page 1</a></li> -->
         <li><%= link_to "my properties", properties_path %></li>
         <li><%= link_to "properties on Map", page_allpropertiesonmap_path %></li>
+        <% if current_user && current_user.admin? %>
+          <li><%= link_to "all users", users_index_path %></li>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>  <%= link_to edit_user_registration_path(current_user) do%>
-                <div class="username"> <%= current_user.full_name.present? ? current_user.full_name : current_user.email %></div>
+                <div class="username"> <%= current_user.full_name.present? ? current_user.full_name : current_user.email %>
+                  <% if current_user && current_user.admin? %>
+                    admin
+                  <% end %>
+                </div>
               <% end %>
         </li>
         <li><%= link_to "Logout", destroy_user_session_path, :class => "glyphicon glyphicon-log-out", method: :delete %></li>

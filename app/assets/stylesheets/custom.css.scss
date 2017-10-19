@@ -20,3 +20,8 @@
 .description em {
   color: #FF0000;
 }
+
+ol li.list-group-item {
+    list-style: decimal inside;
+    display: list-item;
+}

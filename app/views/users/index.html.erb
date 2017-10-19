@@ -1,0 +1,44 @@
+<div class="card">
+  <div class="card-body">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+    <!--Table-->
+    <table class="table table-striped">
+
+      <!--Table head-->
+      <thead>
+        <tr>
+          <th>First name</th>
+          <th>last_name</th>
+          <th>email</th>
+          <th>cnic</th>
+          <th>actions</th>
+        </tr>
+      </thead>
+      <!--Table head-->
+
+      <!--Table body-->
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.cnic %></td>
+          <td><%= link_to "details",edit_user_path(user.id) , :type => "button", :class => "btn btn-primary btn-xs"  %></td>
+        </tr>
+        <% end %>
+      </tbody>
+      <!--Table body-->
+    </table>
+    <!--Table-->
+
+  </div>
+</div>

@@ -1,0 +1,50 @@
+
+<div class="panel panel-default devise-bs">
+  <div class="panel-heading">
+    <h4>edit</h4>
+  </div>
+  <div class="panel-body">
+    <%= form_for(@user) do |f| %>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+    </div>
+    <!--  -->
+    <div class="form-group">
+      <div class="col-md-6 no-padding">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, class: "form-control" %>
+      </div>
+
+      <div class="col-md-6 no-padding left-padding">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, class: "form-control" %>
+      </div>
+    </div>
+    <!--  -->
+    <div class="form-group">
+      <div class="col-md-4 no-padding">
+        <%= f.label :age %>
+        <%= f.number_field :age, class: "form-control" %>
+      </div>
+
+      <div class="col-md-4 no-padding">
+        <%= f.label :cnic %>
+        <%= f.number_field :cnic, class: "form-control" %>
+      </div>
+
+      <div class="col-md-4 no-padding left-padding">
+        <%= f.label :gender %>
+        <%= f.text_field :gender, class: "form-control" %>
+      </div>
+
+    </div>
+    <!--  -->
+    <br>
+    <%= f.submit t('.update', default: 'Update'), class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
+
+
+<%= link_to t('.back', default: 'Back'), :back %>
